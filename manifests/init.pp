@@ -41,6 +41,7 @@ class twemproxy (
   $client_port          = $twemproxy::params::client_port,
   $client_weight        = $twemproxy::params::client_weight,
   $clients_array        = undef,
+  $yaml_config          = undef,
 ) inherits twemproxy::params {
 
   anchor { 'twemproxy::start': } ->
@@ -64,6 +65,7 @@ class twemproxy (
     client_port          => $client_port,
     client_weight        => $client_weight,
     clients_array        => $clients_array,
+    yaml_config          => $yaml_config,
   } ->
 
   class { 'twemproxy::service': } ->
